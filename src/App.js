@@ -6,10 +6,11 @@ import Rating from "./components/Rating";
 import Keunggulan from "./components/Keunggulan";
 import Faq from "./components/FAQ";
 import Accordion from "./components/Accordion";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div>
+    <div className="overflow-hidden">
       <Navbar />
       <Home />
       <Page />
@@ -18,6 +19,7 @@ function App() {
       <Keunggulan />
       <Faq />
       <Accordion />
+      <Footer />
     </div>
   );
 }

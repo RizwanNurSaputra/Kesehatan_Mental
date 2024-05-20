@@ -1,12 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { navLink } from "../data/dummy";
 import logo from "../assets/logo.png";
 import { Link } from "react-scroll";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 const Navbar = () => {
     const [nav, setNav] = useState(false);
+    const [isScroll, setIsScroll] = useState(false);
+    useEffect(() => {
+        const handlerScroll = () => {
+            if(window.scrollY > 0) {
+                setIsScroll(true);
+            } else {
+                setIsScroll(false);
+            }
+        };
+        window.addEventListener("scroll", handlerScroll);
+        return ()=> {
+            window.removeEventListener("scroll", handlerScroll );
+        };
+    }, []);
     return (
-        <div className="flex justify-between items-center px-8 lg:px-[72px] h-[80px] w-full fixed top-0">
+        <div className={`${
+            isScroll ? "bg-blue-500 h-[60px] lg:-top-[60px]" : " h-[80px]"
+          } lg:px-[72px] px-5 w-full  z-[10] fixed  transition-all duration-300 ease-in-out  flex justify-between items-center`}
+        >
             <div>
                 <img src={logo} alt="" className="w-full h-full object-contain"/>
             </div>
@@ -17,7 +34,7 @@ const Navbar = () => {
             <Link 
                 to={item.id} 
                 key={item.id} 
-                className="hover:text-blue-500 text-sm md:text-md cursor-pointer"
+                className="hover:text-blue-700 text-sm md:text-md cursor-pointer"
                 >
                 {item.name}
             </Link>
@@ -26,7 +43,7 @@ const Navbar = () => {
             </li>
         </ul>
         <div className="flex items-center">
-        <button className="px-8 lg:px-6 bg-blue-600 outline-none hover:bg-blue-500 hover:text-white rounded">
+        <button className="px-8 lg:px-6 bg-blue-700 outline-none hover:bg-blue-500 text-white rounded">
             Sign Up
             </button>
             <AiOutlineMenu 

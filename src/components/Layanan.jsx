@@ -1,17 +1,25 @@
 import React from "react";
-import imagelayanan from "../assets/imagelayanan.png";
+import anxiety from "../assets/anxiety.png";
+import bipolar from "../assets/bipolar.png";
+import depression from "../assets/depression.png";
 const Layanan = () => {
     return (
-    <div className="mt-12">
-        <h3 className="font-bold pt-12 text-center">Layanan</h3>
-        <br/><h1 className="font-bold text-4xl text-gray-500 text-center">Layanan Masalah Kesehatan Mental yang Kami Sediakan</h1>
-                <div className="">
-                <div className="flex flex-col gap-y-0 m-2">
-                <img src={imagelayanan} alt="" className="pt-6 grid grid-cols-1 " />
-                </div>
-            </div>
+        <div className="pt-40">
+        <h3 className="font-bold text-center">Layanan</h3>
+        <br></br><h1 className="font-bold text-3xl text-center">Layanan Masalah Kesehatan Mental yang Kami Sediakan</h1>
+        <div className="flex justify-center px-8 pt-6">
+        <div>
+            <img src={anxiety} alt="" className="pt-6 px-14 flex-direction justify-center shadow hover:shadow-lg" />
+        </div>
+        <div>
+            <img src={bipolar} alt="" className="pt-6 px-14 flex-direction shadow hover:shadow-lg"/>
+        </div>
+        <div>
+            <img src={depression} alt="" className="pt-6 px-14 flex-direction shadow hover:shadow-lg"/>
+        </div>
     </div>
-    );
+    </div>
+);
 };
 
 export default Layanan;
